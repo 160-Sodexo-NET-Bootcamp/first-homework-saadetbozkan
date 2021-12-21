@@ -55,14 +55,14 @@ namespace BookStore.Controllers
 
 
         [HttpPost("v1")]
-        //api/Books
+        //api/Books/v1
         public IActionResult GetAll()
         {
             return Ok(BookList);
         }
 
         [HttpGet("v1/{id}")]
-        //api/Books/1
+        //api/Books/v1/1
         public IActionResult GetBookById([FromRoute] int id)
         {
             foreach (Book book in BookList)
@@ -76,7 +76,7 @@ namespace BookStore.Controllers
         }
 
         [HttpGet("v2")]
-        //api/Books?id=1
+        //api/Books/v2?id=1
         public IActionResult GetById([FromQuery] int id)
         {
             foreach (Book book in BookList)
@@ -90,7 +90,7 @@ namespace BookStore.Controllers
         }
 
         [HttpPost("v2")]
-        //api/Books
+        //api/Books/v2
         public IActionResult Post([FromBody] Book createBook)
         {
             foreach (Book book in BookList)
@@ -105,6 +105,7 @@ namespace BookStore.Controllers
         }
 
         [HttpPut("v1/{id}")]
+        //api/Books/v1/1
         public IActionResult Put(int id, [FromBody] Book updateBook)
         {
             foreach (Book book in BookList)
@@ -120,7 +121,7 @@ namespace BookStore.Controllers
         }
 
         [HttpDelete("v1/{id}")]
-        //api/Books/7
+        //api/Books/v1/7
         public IActionResult Delete(int id)
         {
             foreach (Book book in BookList)
